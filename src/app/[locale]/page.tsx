@@ -4,10 +4,10 @@ import { handleServerProps } from '@/utils/serverUtils';
 
 const HomePage = handleServerProps(async ({ translation }: PageContext) => {
   return (
-    <div>
+    <section>
       <h1>{translation.title}</h1>
       <p>{translation.description}</p>
-    </div>
+    </section>
   );
 }, pageTypes.HOME);
 

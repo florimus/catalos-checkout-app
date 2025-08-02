@@ -1,13 +1,14 @@
-export type { Locale } from "@i18n/config";
+export type { Locale } from '@i18n/config';
 
 export interface RawPageContext {
-  params: {
+  params: Promise<{
     locale: Locale;
+    slug?: string;
     id?: string;
-  };
-  searchParams?: {
+  }>;
+  searchParams?: Promise<{
     [key: string]: string;
-  };
+  }>;
 }
 
 export interface PageContext extends RawPageContext {

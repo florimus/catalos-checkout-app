@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
 
   const { locale } = (await params) || { locale: 'en-ae' };
@@ -34,7 +34,7 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }>) {
   const { locale } = (await params) || { locale: 'en-ae' };
 
