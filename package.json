@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack -p 9900",
-    "build": "next build",
+    "dev": "npx graphql-codegen && next dev --turbopack -p 9900",
+    "build": "npx graphql-codegen && next build",
     "start": "next start",
     "lint": "next lint"
   },
