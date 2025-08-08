@@ -9,6 +9,6 @@ const HomePage = handleServerProps(async ({ translation }: PageContext) => {
       <p>{translation.description}</p>
     </section>
   );
-}, pageTypes.HOME);
+}, pageTypes.PDP);
 
 export default HomePage;

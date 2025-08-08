@@ -1,0 +1,10 @@
+query UserInfo {
+  me {
+    id
+    firstName
+    lastName
+    email
+    avatar
+    verified
+  }
+}
