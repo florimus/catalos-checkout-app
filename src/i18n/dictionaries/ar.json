@@ -2,6 +2,17 @@
     "INVALID_SECURE_CHECKOUT_PAGE": {
       "title": "مرحبا بكم في تطبيقنا",
       "description": "هذه الصفحة هي الصفحة الرئيسية لتطبيقنا."
+    },
+    "CHECKOUT_PAGE": {
+      "order_summary_title": "ملخص الطلب",
+      "quantity": "الكمية",
+      "subtotalPrice": "المجموع الفرعي",
+      "totalTaxPrice": "المجموع الضريبي",
+      "shippingPrice": "الشحن",
+      "grandTotalPrice": "المجموع الكلي",
+      "completeOrder": "اكمل الطلب",
+      "currency": "درهم",
+      "free_label": "مجانا"
     }
   }
   

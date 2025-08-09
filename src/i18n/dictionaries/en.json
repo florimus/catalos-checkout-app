@@ -2,5 +2,16 @@
   "INVALID_SECURE_CHECKOUT_PAGE": {
     "title": "Welcome to the Home Page",
     "description": "This is the home page of our application."
+  },
+  "CHECKOUT_PAGE": {
+    "order_summary_title": "Order Summary",
+    "quantity": "Quantity",
+    "subtotalPrice": "Subtotal",
+    "totalTaxPrice": "Tax",
+    "shippingPrice": "Shipping",
+    "grandTotalPrice": "Grand Total",
+    "completeOrder": "Complete Order",
+    "currency": "AED",
+    "free_label": "Free"
   }
 }

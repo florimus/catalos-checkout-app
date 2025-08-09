@@ -1,6 +1,9 @@
+// import { getCart } from '@/actions/cart';
 import { getCart } from '@/actions/cart';
 import { PageContext } from '@/common/lib/types';
+import Checkout from '@/components/widgets/Checkout';
 import { COOKIE_KEYS } from '@/core/constants';
+import { LineItem, Price } from '@/lib/graphql/generated';
 import { pageTypes } from '@/utils/constants';
 import { getCookie } from '@/utils/cookieUtils';
 import { handleServerProps } from '@/utils/serverUtils';
@@ -8,16 +11,15 @@ import { handleServerProps } from '@/utils/serverUtils';
 const CheckoutPage = handleServerProps(async ({ translation }: PageContext) => {
   const orderId = await getCookie(COOKIE_KEYS.ORDER_ID);
 
-  const cartResponse = await getCart(orderId || '');
-
-  console.log('cartResponse', cartResponse);
+  const { getCart: cartResponse } = (await getCart(orderId || '')) || {};
 
   return (
-    <section>
-      <h1>{translation.title}</h1>
-      <p>{translation.description}</p>
-    </section>
+    <Checkout
+      translation={translation}
+      lineItems={cartResponse?.lineItems as LineItem[]}
+      price={cartResponse?.price as Price}
+    />
   );
-}, pageTypes.INVALID_SECURE_CHECKOUT_PAGE);
+}, pageTypes.CHECKOUT_PAGE);
 
 export default CheckoutPage;
