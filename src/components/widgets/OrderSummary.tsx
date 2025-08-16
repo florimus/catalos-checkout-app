@@ -1,3 +1,5 @@
+'use client';
+
 import { LineItem, Price } from '@/lib/graphql/generated';
 import { t } from '@/utils/translationUtils';
 import Image from 'next/image';
@@ -83,6 +85,8 @@ const OrderSummary: FC<OrderSummaryProps> = ({
         <button className='w-full mt-6 bg-black text-amber-50 py-3 rounded-sm font-medium cursor-pointer'>
           {translation?.completeOrder}
         </button>
+
+        <p className='text-sm text-gray-500 mt-4'>{translation?.securePayment}</p>
       </div>
     </div>
   );

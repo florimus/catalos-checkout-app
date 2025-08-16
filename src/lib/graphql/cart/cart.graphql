@@ -1,5 +1,5 @@
-query GetCart {
-    getCart(id: "688d0b3f7cb1b67c97a87e14") {
+query GetCart($id: ID!) {
+    getCart(id: $id) {
         id
         status
         userId

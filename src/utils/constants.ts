@@ -6,3 +6,8 @@ export const pageTypes = {
   PDP: 'PDP',
   CHECKOUT_PAGE: 'CHECKOUT_PAGE',
 };
+
+export const LANGUAGES = [
+  { code: 'EN', label: 'English', locale: 'en-ae' },
+  { code: 'AR', label: 'العربية', locale: 'ar-ae' },
+]

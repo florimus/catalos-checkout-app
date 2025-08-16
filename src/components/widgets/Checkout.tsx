@@ -3,24 +3,34 @@
 import React, { FC } from 'react';
 
 import Container from '../atoms/Container';
-import ProgressTracker from './ProgressTracker';
-import PersonalInfo from './PersonalInfo';
 import OrderSummary from './OrderSummary';
 import { LineItem, Price } from '@/lib/graphql/generated';
+import Header from './Header';
+import CheckoutSteps from './CheckoutSteps';
 
 interface CheckoutPageProps {
-  translation: Record<string, string>,
-  lineItems?: LineItem[],
+  translation: Record<string, string>;
+  lineItems?: LineItem[];
   price: Price;
+  language: string;
 }
 
-const CheckoutPage: FC<CheckoutPageProps> = ({ translation, lineItems, price }) => {
+const CheckoutPage: FC<CheckoutPageProps> = ({
+  translation,
+  lineItems,
+  price,
+  language,
+}) => {
   return (
     <Container>
-      <ProgressTracker currentStep={1} />
+      <Header language={language} />
       <div className='flex flex-col lg:flex-row gap-8'>
-        <PersonalInfo />
-        <OrderSummary translation={translation} lineItems={lineItems} price={price} />
+        <CheckoutSteps/>
+        <OrderSummary
+          translation={translation}
+          lineItems={lineItems}
+          price={price}
+        />
       </div>
     </Container>
   );

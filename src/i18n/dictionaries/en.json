@@ -12,6 +12,7 @@
     "grandTotalPrice": "Grand Total",
     "completeOrder": "Complete Order",
     "currency": "AED",
-    "free_label": "Free"
+    "free_label": "Free",
+    "securePayment": "Our secure checkout is 100% encrypted and your personal details are safe."
   }
 }

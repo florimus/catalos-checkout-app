@@ -10,6 +10,7 @@ import { handleServerProps } from '@/utils/serverUtils';
 
 const CheckoutPage = handleServerProps(async ({ translation }: PageContext) => {
   const orderId = await getCookie(COOKIE_KEYS.ORDER_ID);
+  const language = await getCookie(COOKIE_KEYS.LANGUAGE);
 
   const { getCart: cartResponse } = (await getCart(orderId || '')) || {};
 
@@ -18,6 +19,7 @@ const CheckoutPage = handleServerProps(async ({ translation }: PageContext) => {
       translation={translation}
       lineItems={cartResponse?.lineItems as LineItem[]}
       price={cartResponse?.price as Price}
+      language={language || "EN"}
     />
   );
 }, pageTypes.CHECKOUT_PAGE);

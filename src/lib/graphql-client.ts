@@ -12,8 +12,11 @@ export async function graphqlFetch<TData, TVariables = Record<string, unknown>>(
   const token = await getCookie(COOKIE_KEYS.TOKEN);
   const language = await getCookie(COOKIE_KEYS.LANGUAGE);
 
+  console.log(token, language, variables);
+  
+
   const res = await fetch(
-    process.env.GRAPHQL_ENDPOINT || 'http://3.109.157.168:8071/graphql',
+    process.env.GRAPHQL_ENDPOINT || 'http://43.204.61.73:8071/graphql',
     {
       method: 'POST',
       headers: {
@@ -31,9 +34,12 @@ export async function graphqlFetch<TData, TVariables = Record<string, unknown>>(
 
   const json = await res.json();
 
+  console.log(JSON.stringify(json, null, 2));
+  
+
   if (json.errors) {
     console.error('GraphQL Errors:', json.errors);
-    throw new Error(json.errors[0]?.message || 'GraphQL request failed');
+    // throw new Error(json.errors[0]?.message || 'GraphQL request failed');
   }
 
   return json.data;
