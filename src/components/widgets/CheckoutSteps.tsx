@@ -4,6 +4,7 @@ import { FaShippingFast, FaUser } from 'react-icons/fa';
 import { IoIosArrowDown, IoIosArrowForward } from 'react-icons/io';
 import { User } from '@/common/lib/types';
 import { TbHeartHandshake } from 'react-icons/tb';
+import ShippingAndBillingAddress from './ShippingAndBillingAddress';
 
 interface Step {
   id: number;
@@ -65,7 +66,7 @@ export default function CheckoutSteps({
           </h2>
         </div>
       ),
-      content: <div>Address form</div>,
+      content: <ShippingAndBillingAddress translation={translation} />,
     },
     {
       id: 3,
@@ -119,11 +120,9 @@ export default function CheckoutSteps({
             </button>
 
             <div
-              className={`transition-all duration-300 ease-in-out overflow-hidden`}
-              style={{
-                maxHeight: openStep === step.id ? '500px' : '0',
-                opacity: openStep === step.id ? 1 : 0,
-              }}
+              className={`transition-all duration-300 ease-in-out ${
+                openStep === step.id ? '' : 'hidden'
+              }`}
             >
               <div className='p-4 border-t border-gray-200 bg-white'>
                 {step.content}

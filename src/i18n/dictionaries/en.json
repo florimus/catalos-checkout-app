@@ -24,6 +24,17 @@
     "loginDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, dolores.",
     "continueAsGuest": "Continue as Guest",
     "guestUserDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, dolores.",
-    "continueLabel": "Continue"
+    "continueLabel": "Continue",
+    "shippingAddress": "Shipping Address",
+    "addressLine1": "Address Line 1",
+    "addressLine2": "Address Line 2",
+    "country": "Country",
+    "state": "State",
+    "city": "City",
+    "area": "area",
+    "phone": "Phone",
+    "pinCode": "Pin Code",
+    "sameAsShippingAddress": "Use shippingAddress same as billingAddress",
+    "billingAddress": "Billing Address"
   }
 }

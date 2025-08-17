@@ -1,30 +1,40 @@
 {
-    "INVALID_SECURE_CHECKOUT_PAGE": {
-      "title": "مرحبا بكم في تطبيقنا",
-      "description": "هذه الصفحة هي الصفحة الرئيسية لتطبيقنا."
-    },
-    "CHECKOUT_PAGE": {
-      "order_summary_title": "ملخص الطلب",
-      "quantity": "الكمية",
-      "subtotalPrice": "المجموع الفرعي",
-      "totalTaxPrice": "المجموع الضريبي",
-      "shippingPrice": "الشحن",
-      "grandTotalPrice": "المجموع الكلي",
-      "completeOrder": "اكمل الطلب",
-      "currency": "درهم",
-      "free_label": "مجانا",
-      "securePayment": "إن عملية الدفع الآمنة لدينا مشفرة بنسبة 100% وتفاصيلك الشخصية آمنة.",
-      "personalInfo": "معلومات شخصية",
-      "shippingAndBillingAddress": "عنوان الشحن والفواتير",
-      "deliveryOptions": "خيارات التوصيل",
-      "paymentOptions": "خيارات الدفع",
-      "loginLabel": "تسجيل الدخول",
-      "emailLabel": "البريد الالكتروني",
-      "passwordLabel": "كلمة المرور",
-      "loginDescription": "لوريم ايبسوم هو ببساطة نص شكلي (بمعنى ان الكتاب يحتوي على متين يدعم الطباعة) لتعبئة كتاب ",
-      "continueAsGuest": "استمر كزائر",
-      "guestUserDescription": "لوريم ايبسوم هو ببساطة نص شكلي (بمعنى ان الكتاب يحتوي على متين يدعم الطباعة) لتعبئة كتاب ",
-      "continueLabel": "استمر"
-    }
+  "INVALID_SECURE_CHECKOUT_PAGE": {
+    "title": "مرحبا بكم في تطبيقنا",
+    "description": "هذه الصفحة هي الصفحة الرئيسية لتطبيقنا."
+  },
+  "CHECKOUT_PAGE": {
+    "order_summary_title": "ملخص الطلب",
+    "quantity": "الكمية",
+    "subtotalPrice": "المجموع الفرعي",
+    "totalTaxPrice": "المجموع الضريبي",
+    "shippingPrice": "الشحن",
+    "grandTotalPrice": "المجموع الكلي",
+    "completeOrder": "اكمل الطلب",
+    "currency": "درهم",
+    "free_label": "مجانا",
+    "securePayment": "إن عملية الدفع الآمنة لدينا مشفرة بنسبة 100% وتفاصيلك الشخصية آمنة.",
+    "personalInfo": "معلومات شخصية",
+    "shippingAndBillingAddress": "عنوان الشحن والفواتير",
+    "deliveryOptions": "خيارات التوصيل",
+    "paymentOptions": "خيارات الدفع",
+    "loginLabel": "تسجيل الدخول",
+    "emailLabel": "البريد الالكتروني",
+    "passwordLabel": "كلمة المرور",
+    "loginDescription": "لوريم ايبسوم هو ببساطة نص شكلي (بمعنى ان الكتاب يحتوي على متين يدعم الطباعة) لتعبئة كتاب ",
+    "continueAsGuest": "استمر كزائر",
+    "guestUserDescription": "لوريم ايبسوم هو ببساطة نص شكلي (بمعنى ان الكتاب يحتوي على متين يدعم الطباعة) لتعبئة كتاب ",
+    "continueLabel": "استمر",
+    "shippingAddress": "عنوان الشحن",
+    "addressLine1": "عنوان الشحن",
+    "addressLine2": "عنوان الشحن",
+    "country": "الدولة",
+    "state": "الولاية",
+    "city": "المدينة",
+    "area": "المنطقة",
+    "phone": "الهاتف",
+    "pinCode": "الرمز البريدي",
+    "sameAsShippingAddress": "استخدام عنوان الشحن نفسه كعنوان الفواتير",
+    "billingAddress": "عنوان الفواتير"
   }
-  
+}
