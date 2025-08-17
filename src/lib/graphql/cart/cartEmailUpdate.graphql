@@ -1,0 +1,8 @@
+mutation UpdateCartEmail($id: ID!, $email: String!) {
+    updateEmail(id: $id, email: $email) {
+        id
+        status
+        userId
+        email
+    }
+}

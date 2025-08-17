@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import PersonalInfo from './PersonalInfo';
-import { FaUser } from 'react-icons/fa';
-import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
-
+import { FaShippingFast, FaUser } from 'react-icons/fa';
+import { IoIosArrowDown, IoIosArrowForward } from 'react-icons/io';
+import { User } from '@/common/lib/types';
+import { TbHeartHandshake } from 'react-icons/tb';
 
 interface Step {
   id: number;
@@ -10,34 +11,75 @@ interface Step {
   content: React.ReactNode;
 }
 
-export default function CheckoutSteps() {
-  const [openStep, setOpenStep] = useState<number>(1);
+interface CheckoutStepsProps {
+  user: User | null;
+  checkoutStep: number;
+  orderId?: string;
+  orderEmail?: string | null;
+  translation: Record<string, string>;
+}
 
-  const steps: Step[] = [
-    {
-      id: 1,
-      title: (
-        <div className='flex items-center'>
-          <FaUser className='text-primary mr-2' />
-          <h2 className='text-heading font-heading'>Personal Information</h2>
-        </div>
-      ),
-      content: <PersonalInfo />,
-    },
-    {
-      id: 2,
-      title: 'Shipping & Billing Address',
-      content: <div>Address form</div>,
-    },
-    { id: 3, title: 'Delivery Options', content: <div>Delivery choices</div> },
-    { id: 4, title: 'Payment', content: <div>Payment form</div> },
-  ];
+export default function CheckoutSteps({
+  user,
+  translation,
+  orderEmail,
+  orderId,
+  checkoutStep,
+}: CheckoutStepsProps) {
+  const [openStep, setOpenStep] = useState<number>(checkoutStep);
 
   const handleContinue = (id: number) => {
     if (id < steps.length) {
       setOpenStep(id + 1);
     }
   };
+
+  const steps: Step[] = [
+    {
+      id: 1,
+      title: (
+        <div className='flex items-center'>
+          <FaUser className='text-primary mx-2' />
+          <h2 className='text-heading font-heading'>
+            {translation.personalInfo}
+          </h2>
+        </div>
+      ),
+      content: (
+        <PersonalInfo
+          orderEmail={orderEmail}
+          translation={translation}
+          orderId={orderId}
+          user={user}
+          nextStep={() => handleContinue(1)}
+        />
+      ),
+    },
+    {
+      id: 2,
+      title: (
+        <div className='flex items-center'>
+          <FaShippingFast className='text-primary mx-2' />
+          <h2 className='text-heading font-heading'>
+            {translation.shippingAndBillingAddress}
+          </h2>
+        </div>
+      ),
+      content: <div>Address form</div>,
+    },
+    {
+      id: 3,
+      title: (
+        <div className='flex items-center'>
+          <TbHeartHandshake className='text-primary mx-2' />
+          <h2 className='text-heading font-heading'>
+            {translation.paymentOptions}
+          </h2>
+        </div>
+      ),
+      content: <div>Payment form</div>,
+    },
+  ];
 
   return (
     <div className='flex-1 mt-6'>
@@ -54,7 +96,10 @@ export default function CheckoutSteps() {
 
       <div className='space-y-3'>
         {steps.map((step) => (
-          <div key={step.id} className='border border-gray-200 rounded-md overflow-hidden'>
+          <div
+            key={step.id}
+            className='border border-gray-200 rounded-md overflow-hidden'
+          >
             <button
               onClick={() => setOpenStep(step.id)}
               className={`w-full text-left px-4 py-3 font-medium flex justify-between items-center ${
@@ -64,7 +109,13 @@ export default function CheckoutSteps() {
               }`}
             >
               {step.title}
-              <span>{openStep === step.id ? <IoIosArrowDown /> : <IoIosArrowForward />}</span>
+              <span>
+                {openStep === step.id ? (
+                  <IoIosArrowDown />
+                ) : (
+                  <IoIosArrowForward />
+                )}
+              </span>
             </button>
 
             <div
@@ -76,14 +127,6 @@ export default function CheckoutSteps() {
             >
               <div className='p-4 border-t border-gray-200 bg-white'>
                 {step.content}
-                {step.id < steps.length && (
-                  <button
-                    onClick={() => handleContinue(step.id)}
-                    className='mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600'
-                  >
-                    Continue
-                  </button>
-                )}
               </div>
             </div>
           </div>

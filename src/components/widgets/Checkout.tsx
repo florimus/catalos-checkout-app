@@ -1,31 +1,57 @@
 'use client';
 
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 
 import Container from '../atoms/Container';
 import OrderSummary from './OrderSummary';
-import { LineItem, Price } from '@/lib/graphql/generated';
+import { Address, LineItem, Price } from '@/lib/graphql/generated';
 import Header from './Header';
 import CheckoutSteps from './CheckoutSteps';
+import { User } from '@/common/lib/types';
 
 interface CheckoutPageProps {
   translation: Record<string, string>;
-  lineItems?: LineItem[];
   price: Price;
   language: string;
+  user: User | null;
+  orderId?: string;
+  orderEmail?: string | null;
+  shippingAddress?: Address;
+  billingAddress?: Address;
+  lineItems?: LineItem[];
 }
 
 const CheckoutPage: FC<CheckoutPageProps> = ({
   translation,
   lineItems,
   price,
+  user,
+  orderId,
+  orderEmail,
+  shippingAddress,
+  billingAddress,
   language,
 }) => {
+  const checkoutStep = useMemo(() => {
+    if (orderEmail && shippingAddress && billingAddress) {
+      return 3;
+    } else if (orderEmail) {
+      return 2;
+    } else {
+      return 1;
+    }
+  }, [orderEmail, shippingAddress, billingAddress]);
   return (
     <Container>
       <Header language={language} />
       <div className='flex flex-col lg:flex-row gap-8'>
-        <CheckoutSteps/>
+        <CheckoutSteps
+          checkoutStep={checkoutStep}
+          orderEmail={orderEmail}
+          orderId={orderId}
+          user={user}
+          translation={translation}
+        />
         <OrderSummary
           translation={translation}
           lineItems={lineItems}

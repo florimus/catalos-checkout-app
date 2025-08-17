@@ -15,6 +15,15 @@ export interface PageContext extends RawPageContext {
   translation: Record<string, string>;
 }
 
+export interface User {
+  id?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  email?: string | null;
+  avatar?: string | null;
+  verified?: string | null;
+}
+
 export type Locale = 'en-ae' | 'ar-ae';
 
 export type Language = 'en' | 'ar';

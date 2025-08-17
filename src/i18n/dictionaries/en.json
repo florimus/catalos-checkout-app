@@ -13,6 +13,17 @@
     "completeOrder": "Complete Order",
     "currency": "AED",
     "free_label": "Free",
-    "securePayment": "Our secure checkout is 100% encrypted and your personal details are safe."
+    "securePayment": "Our secure checkout is 100% encrypted and your personal details are safe.",
+    "personalInfo": "Personal Information",
+    "shippingAndBillingAddress": "Shipping & Billing Address",
+    "deliveryOptions": "Delivery Options",
+    "paymentOptions": "Payment Options",
+    "loginLabel": "Login",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "loginDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, dolores.",
+    "continueAsGuest": "Continue as Guest",
+    "guestUserDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, dolores.",
+    "continueLabel": "Continue"
   }
 }
