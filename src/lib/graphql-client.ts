@@ -13,7 +13,7 @@ export async function graphqlFetch<TData, TVariables = Record<string, unknown>>(
   const language = await getCookie(COOKIE_KEYS.LANGUAGE);
 
   const res = await fetch(
-    process.env.GRAPHQL_ENDPOINT || 'http://localhost:8071/graphql' || 'http://43.204.61.73:8071/graphql',
+    process.env.API_URL!,
     {
       method: 'POST',
       headers: {

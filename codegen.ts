@@ -1,8 +1,10 @@
+import 'dotenv/config'
+
 import type { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
   schema:
-    process.env.NEXT_PUBLIC_API_URL || 'http://43.204.61.73:8071/graphql',
+    process.env.API_URL!,
   documents: 'src/**/*.graphql',
   generates: {
     './src/lib/graphql/generated.ts': {
