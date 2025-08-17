@@ -25,6 +25,7 @@
     "continueAsGuest": "Continue as Guest",
     "guestUserDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, dolores.",
     "continueLabel": "Continue",
+    "saveAndContinue": "Save & Continue",
     "shippingAddress": "Shipping Address",
     "addressLine1": "Address Line 1",
     "addressLine2": "Address Line 2",
@@ -35,6 +36,8 @@
     "phone": "Phone",
     "pinCode": "Pin Code",
     "sameAsShippingAddress": "Use shippingAddress same as billingAddress",
-    "billingAddress": "Billing Address"
+    "billingAddress": "Billing Address",
+    "edit_label": "Edit",
+    "cancel_label": "Cancel"
   }
 }

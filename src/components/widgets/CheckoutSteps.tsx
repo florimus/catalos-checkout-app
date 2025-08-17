@@ -5,6 +5,7 @@ import { IoIosArrowDown, IoIosArrowForward } from 'react-icons/io';
 import { User } from '@/common/lib/types';
 import { TbHeartHandshake } from 'react-icons/tb';
 import ShippingAndBillingAddress from './ShippingAndBillingAddress';
+import { Address } from '@/lib/graphql/generated';
 
 interface Step {
   id: number;
@@ -17,6 +18,8 @@ interface CheckoutStepsProps {
   checkoutStep: number;
   orderId?: string;
   orderEmail?: string | null;
+  shippingAddress?: Address;
+  billingAddress?: Address;
   translation: Record<string, string>;
 }
 
@@ -26,6 +29,8 @@ export default function CheckoutSteps({
   orderEmail,
   orderId,
   checkoutStep,
+  shippingAddress,
+  billingAddress,
 }: CheckoutStepsProps) {
   const [openStep, setOpenStep] = useState<number>(checkoutStep);
 
@@ -66,7 +71,15 @@ export default function CheckoutSteps({
           </h2>
         </div>
       ),
-      content: <ShippingAndBillingAddress translation={translation} />,
+      content: (
+        <ShippingAndBillingAddress
+          shippingAddress={shippingAddress}
+          billingAddress={billingAddress}
+          orderId={orderId}
+          translation={translation}
+          nextStep={() => handleContinue(2)}
+        />
+      ),
     },
     {
       id: 3,

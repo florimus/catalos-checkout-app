@@ -47,6 +47,8 @@ const CheckoutPage: FC<CheckoutPageProps> = ({
       <div className='flex flex-col lg:flex-row gap-8'>
         <CheckoutSteps
           checkoutStep={checkoutStep}
+          shippingAddress={shippingAddress}
+          billingAddress={billingAddress}
           orderEmail={orderEmail}
           orderId={orderId}
           user={user}

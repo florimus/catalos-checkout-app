@@ -25,6 +25,7 @@
     "continueAsGuest": "استمر كزائر",
     "guestUserDescription": "لوريم ايبسوم هو ببساطة نص شكلي (بمعنى ان الكتاب يحتوي على متين يدعم الطباعة) لتعبئة كتاب ",
     "continueLabel": "استمر",
+    "saveAndContinue": "حفظ واستمر",
     "shippingAddress": "عنوان الشحن",
     "addressLine1": "عنوان الشحن",
     "addressLine2": "عنوان الشحن",
@@ -35,6 +36,8 @@
     "phone": "الهاتف",
     "pinCode": "الرمز البريدي",
     "sameAsShippingAddress": "استخدام عنوان الشحن نفسه كعنوان الفواتير",
-    "billingAddress": "عنوان الفواتير"
+    "billingAddress": "عنوان الفواتير",
+    "edit_label": "تعديل",
+    "cancel_label": "الغاء"
   }
 }

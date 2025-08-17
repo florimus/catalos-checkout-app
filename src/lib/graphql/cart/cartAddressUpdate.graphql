@@ -1,0 +1,6 @@
+mutation UpdateCartAddress($id: ID!, $address: AddressInput!) {
+    updateCartAddress(id: $id, address: $address) {
+        id
+        email
+    }
+}

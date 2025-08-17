@@ -2,8 +2,11 @@
 
 import { graphqlFetch } from '@/lib/graphql-client';
 import {
+  Address,
   GetCartDocument,
   GetCartQuery,
+  UpdateCartAddressDocument,
+  UpdateCartAddressMutation,
   UpdateCartEmailDocument,
   UpdateCartEmailMutation,
 } from '@/lib/graphql/generated';
@@ -26,4 +29,25 @@ export async function updateEmailToCart(id: string, email: string) {
   if (response.updateEmail?.email) {
     revalidatePath('/checkout');
   }
+}
+
+async function updateAddressToCart(id: string, address: Partial<Address>) {
+  await graphqlFetch<UpdateCartAddressMutation>(UpdateCartAddressDocument, {
+    id,
+    address,
+  });
+}
+
+export async function updateCartAddresses(
+  id: string,
+  shippingAddress?: Partial<Address>,
+  billingAddress?: Partial<Address>
+) {
+  if (shippingAddress) {
+    await updateAddressToCart(id, shippingAddress);
+  }
+  if (billingAddress) {
+    await updateAddressToCart(id, billingAddress);
+  }
+  revalidatePath('/checkout');
 }
