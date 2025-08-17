@@ -1,0 +1,5 @@
+query GetPaymentLink($id: ID!) {
+    getPaymentLink(id: $id) {
+        paymentLink
+    }
+}

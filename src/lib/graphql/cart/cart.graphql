@@ -105,8 +105,13 @@ query GetCart($id: ID!) {
         }
         paymentInfo {
             amount
-            method
             status
+            mode {
+                id
+                isExternal
+                mode
+                name
+            }
         }
     }
 }

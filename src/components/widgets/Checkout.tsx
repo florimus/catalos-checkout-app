@@ -4,7 +4,12 @@ import React, { FC, useMemo } from 'react';
 
 import Container from '../atoms/Container';
 import OrderSummary from './OrderSummary';
-import { Address, LineItem, Price } from '@/lib/graphql/generated';
+import {
+  Address,
+  LineItem,
+  PaymentOption,
+  Price,
+} from '@/lib/graphql/generated';
 import Header from './Header';
 import CheckoutSteps from './CheckoutSteps';
 import { User } from '@/common/lib/types';
@@ -19,6 +24,8 @@ interface CheckoutPageProps {
   shippingAddress?: Address;
   billingAddress?: Address;
   lineItems?: LineItem[];
+  paymentOptions?: PaymentOption[];
+  selectedPaymentMethod?: PaymentOption;
 }
 
 const CheckoutPage: FC<CheckoutPageProps> = ({
@@ -31,6 +38,8 @@ const CheckoutPage: FC<CheckoutPageProps> = ({
   shippingAddress,
   billingAddress,
   language,
+  paymentOptions,
+  selectedPaymentMethod,
 }) => {
   const checkoutStep = useMemo(() => {
     if (orderEmail && shippingAddress && billingAddress) {
@@ -50,12 +59,16 @@ const CheckoutPage: FC<CheckoutPageProps> = ({
           shippingAddress={shippingAddress}
           billingAddress={billingAddress}
           orderEmail={orderEmail}
+          paymentOptions={paymentOptions}
           orderId={orderId}
           user={user}
           translation={translation}
+          selectedPaymentMethodId={selectedPaymentMethod?.id || ''}
         />
         <OrderSummary
+          orderId={orderId}
           translation={translation}
+          selectedPaymentMethod={selectedPaymentMethod}
           lineItems={lineItems}
           price={price}
         />

@@ -5,6 +5,10 @@ import {
   Address,
   GetCartDocument,
   GetCartQuery,
+  GetPaymentLinkDocument,
+  GetPaymentLinkQuery,
+  SelectPaymentMethodDocument,
+  SelectPaymentMethodMutation,
   UpdateCartAddressDocument,
   UpdateCartAddressMutation,
   UpdateCartEmailDocument,
@@ -44,10 +48,38 @@ export async function updateCartAddresses(
   billingAddress?: Partial<Address>
 ) {
   if (shippingAddress) {
-    await updateAddressToCart(id, shippingAddress);
+    await updateAddressToCart(id, {...shippingAddress, addressType: 'Shipping'});
   }
   if (billingAddress) {
-    await updateAddressToCart(id, billingAddress);
+    await updateAddressToCart(id, {...billingAddress, addressType: 'Billing'});
   }
   revalidatePath('/checkout');
+}
+
+export async function updatePaymentMethod(id: string, optionId: string) {
+  const response = await graphqlFetch<SelectPaymentMethodMutation>(
+    SelectPaymentMethodDocument,
+    {
+      id,
+      optionId,
+    }
+  );
+  if (response?.selectPaymentMethod?.id) {
+    revalidatePath('/checkout');
+  }
+}
+
+export async function getPaymentLink(id: string) {
+  const response = await graphqlFetch<GetPaymentLinkQuery>(
+    GetPaymentLinkDocument,
+    {
+      id,
+    }
+  );
+  if (response.getPaymentLink?.paymentLink) {
+    return response.getPaymentLink;
+  } else {
+    console.error(response);
+  }
+  return null;
 }
